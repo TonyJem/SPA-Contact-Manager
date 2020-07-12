@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Contact Management App v4</title>
+
+		<script src="https://kit.fontawesome.com/ea1a1ab0ec.js" crossorigin="anonymous"></script>
+
+		<!-- * Last style file is always Our main CSS file: -->
+		<link rel="stylesheet" href="assets/css/style.css">
+	</head>
+	<body>
+		<h1>Contact Management Application</h1>
+		<h2>Visma Summer Class 2020 test task</h2>
+		<!-- <i class="fab fa-apple"> Test for FontAwesome: If can see the Apple logo here, then ok!</i> -->
+
+		<!-- *** Table Structure: -->
+		<div class="cma-table-container" id="cmaTableContainer">
+			<div class="cma-table-row">
+				<div class="cma-table-column cma-first-name cma-header">First name</div>
+				<div class="cma-table-column cma-last-name cma-header">Last name</div>
+				<div class="cma-table-column cma-date-of-birth cma-header">Date of birth</div>
+				<div class="cma-table-column cma-phone cma-header">Phone number</div>
+				<div class="cma-table-column cma-email cma-header">E-mail</div>
+				<div class="cma-table-column cma-address cma-header">Address</div>
+				<div class="cma-table-column cma-header cma-add-entry-column" id="cmaAddNewEntry">+</div>
+			</div>
+			<span id="tableBody"></span>
+		</div><!--// Table Structure. -->
+		
+		<!-- *** Add Contact Modal: -->
+		<div class="disable-modal" id="backdrop"></div>
+		<div class="disable-modal" id="newContactModal">
+			<h2>Add New or Edit Contact</h2>
+
+			<label for="newContactFirstName">First name</label>
+			<input type="text" id="newContactFirstName">
+
+			<label for="newContactLastName">Last name</label>
+			<input type="text" id="newContactLastName">
+
+			<label for="newContactDateOfBirth">Date of birth</label>
+			<input type="date" id="newContactDateOfBirth">
+
+			<label for="newContactPhone">Phone number</label>
+			<input type="number" id="newContactPhone">
+
+			<label for="newContactEmail">Email</label>
+			<input type="email" id="newContactEmail">
+
+			<label for="newContactAddress">Address</label>
+			<input type="text" id="newContactAddress">
+
+			<button id="newContactCancelBtn">Cancel</button>
+			<button id="newContactSubmitBtn">Submit</button>
+
+		</div><!--// Add Contact Modal. -->
+
+		<!-- * JavaScript file here: -->
+		<script src="assets/scripts/script.js"></script>
+	</body>
+</html>
