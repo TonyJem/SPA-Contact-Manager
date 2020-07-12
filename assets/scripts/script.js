@@ -82,20 +82,20 @@ let refreshDOMTable = () => {
         currentEditBtn.className = 'cma-table-column cma-edit';
         currentDeleteBtn.className = 'cma-table-column cma-delete';
 
-        // Get data for collumn content:
-        currentIdNumCol.innerHTML = cmaTableKeys[i];
-        currentFirstNameCol.innerHTML = cmaTable[cmaTableKeys[i]].firstName;
-        currentLastNameCol.innerHTML = cmaTable[cmaTableKeys[i]].lastName;
-        currentDateOfBirthCol.innerHTML = cmaTable[cmaTableKeys[i]].dateOfBirth;
-        currentPhoneCol.innerHTML = cmaTable[cmaTableKeys[i]].phone;
-        currentEmailCol.innerHTML = cmaTable[cmaTableKeys[i]].email;
-        currentAddressCol.innerHTML = cmaTable[cmaTableKeys[i]].address;
+        // Get data for each collumn content:
+        currentIdNumCol.innerHTML = i;
+        currentFirstNameCol.innerHTML = cmaTableArray[i].firstName;
+        currentLastNameCol.innerHTML = cmaTableArray[i].lastName;
+        currentDateOfBirthCol.innerHTML = cmaTableArray[i].dateOfBirth;
+        currentPhoneCol.innerHTML = cmaTableArray[i].phone;
+        currentEmailCol.innerHTML = cmaTableArray[i].email;
+        currentAddressCol.innerHTML = cmaTableArray[i].address;
         
         // Create Edit and Delete Buttons in row:
         currentEditBtn.innerHTML = '<i class="far fa-edit"></i>';
         currentDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
 
-        // Insert new row and collumn in table:
+        // Insert new row and collumns in table:
         currentRow.appendChild(currentIdNumCol);
         currentRow.appendChild(currentFirstNameCol);
         currentRow.appendChild(currentLastNameCol);
