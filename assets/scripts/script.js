@@ -36,6 +36,26 @@ let refreshDOMTable = () => {
     newTableBody.id = 'tableBody';
     tableContainer.appendChild(newTableBody);
 
+    // **** Create Array from Table content:
+        console.log("cmaTable Below:");
+        console.log(cmaTable);
+
+        let cmaTableArray = [];
+        for (let i = 0; i < cmaTableKeys.length; i++) {
+            cmaTableArray[i] = {
+                firstName: cmaTable[i].firstName,
+                lastName: cmaTable[i].lastName,
+                dateOfBirth: cmaTable[i].dateOfBirth,
+                phone: cmaTable[i].phone,
+                email: cmaTable[i].email,
+                address: cmaTable[i].address,
+            };
+        };
+        console.log("cmaTableArray Below:");
+        console.log(cmaTableArray);
+
+    // ---- Create Array from Table content.
+
     for (let i = 0; i < cmaTableKeys.length; i++) {
         
         // Create new row and emtpy collumns:
