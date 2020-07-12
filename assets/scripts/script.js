@@ -133,7 +133,7 @@ function enableDisableContactModal (option){
 } //- Function to Enable or Disable Contact Modal.
 
 // New Contact Cancel Button:
-let contactModalCancelBtn = document.getElementById('contactModalCancelButton');
+let contactModalCancelBtn = document.getElementById('contactModalCancelBtn');
 contactModalCancelBtn.addEventListener('click', () => {
     enableDisableContactModal('disable');
 });
