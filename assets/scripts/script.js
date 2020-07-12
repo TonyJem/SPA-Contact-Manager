@@ -1,6 +1,14 @@
 "use strict";
 console.log("script.js file is connected.");
 
+const tableKey = 'cms-table';
+
+// "Clear Local Storage" button:
+let clearBtn = document.getElementById('clearBtn');
+clearBtn.addEventListener('click', () => {
+    localStorage.removeItem(tableKey);
+});
+
 //* Demo Array:
 let cmaTableArrayDemo = [
     {   firstName: 'Johnny',
