@@ -1,6 +1,7 @@
 "use strict";
 console.log("script.js file is connected.");
 
+//* Demo Array:
 let cmaTableArrayDemo = [
     {   firstName: 'Johnny',
         lastName: 'Aplleseed',
@@ -17,40 +18,25 @@ let cmaTableArrayDemo = [
         email: 's.connor@sky.net',
         address: '14239 Judgment Avenue, Stars Hollow'
         }
-];
+]; //- Demo Array.
 
 console.log("cmaTableArrayDemo Below:");
 console.log(cmaTableArrayDemo);
 
+let cmaTableArray = cmaTableArrayDemo;
 
+refreshTableContent();
 
-/*
+function refreshTableContent() {
+    let tableContainer = document.getElementById('cmaTableContainer');
+    let oldTableBody = document.getElementById('tableBody');
+    tableContainer.removeChild(oldTableBody);
 
-function Exmaple() {
-}
+    let newTableBody = document.createElement('span');
+    newTableBody.id = 'tableBody';
+    tableContainer.appendChild(newTableBody);
 
-    // **** Create Array from Table content:
-        console.log("cmaTable Below:");
-        console.log(cmaTable);
-
-        let cmaTableArray = [];
-        for (let i = 0; i < cmaTableKeys.length; i++) {
-            cmaTableArray[i] = {
-                firstName: cmaTable[i].firstName,
-                lastName: cmaTable[i].lastName,
-                dateOfBirth: cmaTable[i].dateOfBirth,
-                phone: cmaTable[i].phone,
-                email: cmaTable[i].email,
-                address: cmaTable[i].address,
-            };
-        };
-        console.log("cmaTableArray Below:");
-        console.log(cmaTableArray);
-
-    // ---- Create Array from Table content.
-
-    for (let i = 0; i < cmaTableKeys.length; i++) {
-        
+    for (let i = 0; i < cmaTableArray.length; i++) {
         // Create new row and emtpy collumns:
         let currentRow = document.createElement('div');
         let currentIdNumCol = document.createElement('div');
@@ -76,15 +62,15 @@ function Exmaple() {
         currentDeleteBtn.className = 'cma-table-column cma-delete';
 
         // Get data for each collumn content:
-        currentIdNumCol.innerHTML = i;
+        currentIdNumCol.innerHTML = i; // <- Number of Row should be increased by 1!!!
         currentFirstNameCol.innerHTML = cmaTableArray[i].firstName;
         currentLastNameCol.innerHTML = cmaTableArray[i].lastName;
         currentDateOfBirthCol.innerHTML = cmaTableArray[i].dateOfBirth;
         currentPhoneCol.innerHTML = cmaTableArray[i].phone;
         currentEmailCol.innerHTML = cmaTableArray[i].email;
         currentAddressCol.innerHTML = cmaTableArray[i].address;
-        
-        // Create Edit and Delete Buttons in row:
+
+        // Create "Edit" and "Delete" Buttons in row:
         currentEditBtn.innerHTML = '<i class="far fa-edit"></i>';
         currentDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
 
@@ -100,5 +86,4 @@ function Exmaple() {
         currentRow.appendChild(currentDeleteBtn);
         newTableBody.appendChild(currentRow);
     }
-
-    */
+}
