@@ -29,7 +29,53 @@ let cmaTableArrayDemo = [
         phone: '+37060080805',
         email: 's.connor@sky.net',
         address: '14239 Judgment Avenue, Stars Hollow'
-        }
+        },
+    {   
+        id: 3,
+        firstName: 'Thomas',
+        lastName: 'Anderson',
+        dateOfBirth: '1979-09-20',
+        phone: '+37060190090',
+        email: 'a.tonyjem@for.fun',
+        address: 'Gedimino pr.2, Vilnius'
+        },
+    {   
+        id: 4,
+        firstName: 'Mia',
+        lastName: 'Whallace',
+        dateOfBirth: '1981-08-25',
+        phone: '5-34-37',
+        email: 'm.whallace@pulp.org',
+        address: 'Chemiku 88-17, Jonava'
+        },
+    {   
+        id: 5,
+        firstName: 'Vincent',
+        lastName: 'Vega',
+        dateOfBirth: '1987-04-20',
+        phone: '+370-601-88888',
+        email: 'v.vega@pulp.org',
+        address: 'Pramones pr.117, Kaunas'
+        },
+    {   
+        id: 6,
+        firstName: 'Jules',
+        lastName: 'Winnfield',
+        dateOfBirth: '1961-04-12',
+        phone: '+37060080805',
+        email: 'j.winnfield@pulp.org',
+        address: 'BridgeStone str., Heathrow'
+        },
+    {   
+        id: 7,
+        firstName: 'Winston',
+        lastName: 'Wolfie',
+        dateOfBirth: '1955-09-21',
+        phone: '+37060080805',
+        email: 'w.wolfie@pulp.org',
+        address: 'Queen Mary str.15, London'
+        },
+
 ]; //- Demo Array.
 
 console.log("cmaTableArrayDemo Below:");
