@@ -33,7 +33,7 @@ h2 {
 .cma-table-container {
 	font-size: 20px;
 	margin-top: 35px;
-	width: 96%;
+	width: 98%;
 	margin: auto;
 }
 
@@ -50,12 +50,16 @@ h2 {
 	text-overflow: ellipsis;
 }
 
+.cma-id-Num{
+	flex-basis: 4%;
+}
+
 .cma-first-name{
-	flex-basis: 12%;
+	flex-basis: 13%;
 }
 
 .cma-last-name{
-	flex-basis: 12%;
+	flex-basis: 13%;
 }
 
 .cma-date-of-birth{
@@ -67,7 +71,7 @@ h2 {
 }
 
 .cma-email{
-	flex-basis: 15%;
+	flex-basis: 10%;
 }
 
 .cma-address {

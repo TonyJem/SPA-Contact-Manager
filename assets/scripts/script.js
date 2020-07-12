@@ -37,6 +37,7 @@ let refreshDOMTable = () => {
 
     for (let i = 0; i < cmaTableKeys.length; i++) {
         let currentRow = document.createElement('div');
+        let currentIdNumCol = document.createElement('div');
         let currentFirstNameCol = document.createElement('div');
         let currentLastNameCol = document.createElement('div');
         let currentDateOfBirthCol = document.createElement('div');
@@ -47,6 +48,7 @@ let refreshDOMTable = () => {
         let currentDeleteBtn = document.createElement('div');
 
         currentRow.className = 'cma-table-row';
+        currentIdNumCol.className = 'cma-table-column cma-id-Num';
         currentFirstNameCol.className = 'cma-table-column cma-first-name';
         currentLastNameCol.className = 'cma-table-column cma-last-name';
         currentDateOfBirthCol.className = 'cma-table-column cma-date-of-birth';
@@ -56,7 +58,8 @@ let refreshDOMTable = () => {
         currentEditBtn.className = 'cma-table-column cma-edit';
         currentDeleteBtn.className = 'cma-table-column cma-delete';
 
-        currentFirstNameCol.innerHTML = cmaTableKeys[i];
+        currentIdNumCol.innerHTML = cmaTableKeys[i];
+        currentFirstNameCol.innerHTML = cmaTable[cmaTableKeys[i]].firstName;
         currentLastNameCol.innerHTML = cmaTable[cmaTableKeys[i]].lastName;
         currentDateOfBirthCol.innerHTML = cmaTable[cmaTableKeys[i]].dateOfBirth;
         currentPhoneCol.innerHTML = cmaTable[cmaTableKeys[i]].phone;
@@ -66,6 +69,7 @@ let refreshDOMTable = () => {
         currentEditBtn.innerHTML = '<i class="far fa-edit"></i>';
         currentDeleteBtn.innerHTML = '<i class="far fa-trash-alt"></i>';
 
+        currentRow.appendChild(currentIdNumCol);
         currentRow.appendChild(currentFirstNameCol);
         currentRow.appendChild(currentLastNameCol);
         currentRow.appendChild(currentDateOfBirthCol);
