@@ -33,7 +33,7 @@ let cmaTableArrayDemo = [
 console.log("cmaTableArrayDemo Below:");
 console.log(cmaTableArrayDemo);
 
-let cmaTableArray = cmaTableArrayDemo;
+let cmaTableArray;
 
 //* Update Table's content:
 function refreshTableContent() {
