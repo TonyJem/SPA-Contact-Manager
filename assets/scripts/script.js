@@ -2,6 +2,10 @@
 console.log("script.js file is connected.");
 
 const tableKey = 'cma-table-array';
+const editContactBtnName = 'Submit Changes';
+const addNewContactBtnName = 'Add to Contact List';
+
+let curentContactId;
 
 // "Load Demo Table" button:
 let loadDemoTableBtn = document.getElementById('loadDemoTableBtn');
@@ -145,6 +149,32 @@ function refreshTableContent() {
         newTableBody.appendChild(currentRow);
     }// Create Table rows and load Data from Array to collumns.
 
+    //* "Edit Contact" Button:
+    let editBtns = document.getElementsByClassName('cma-edit');
+    for (let i  = 0; i < editBtns.length; i++) {
+        editBtns[i].addEventListener('click', () => {
+            curentContactId = i;
+            let contactToEdit = cmaTableArray[curentContactId];
+            enableDisableContactModal('enable', 'editContact');
+            
+            // Define variables for getting values:
+            let contactModalFirstName = document.getElementById('contactModalFirstName');
+            let contactModalLastName = document.getElementById('contactModalLastName');
+            let contactModalDateOfBirth = document.getElementById('contactModalDateOfBirth');
+            let contactModalPhone = document.getElementById('contactModalPhone');
+            let contactModalEmail = document.getElementById('contactModalEmail');
+            let contactModalAddress = document.getElementById('contactModalAddress');
+
+            // Get values from Modal input fields:
+            contactModalFirstName.value = contactToEdit.firstName;
+            contactModalLastName.value = contactToEdit.lastName;
+            contactModalDateOfBirth.value = contactToEdit.dateOfBirth;
+            contactModalPhone.value = contactToEdit.phone;
+            contactModalEmail.value = contactToEdit.email;
+            contactModalAddress.value = contactToEdit.address;
+        });
+    }//- "Edit Contact" Button.
+
     //* "Delete" Button:
     let deleteBtns = document.getElementsByClassName('cma-delete');
     for (let i  = 0; i < deleteBtns.length; i++) {
@@ -181,19 +211,32 @@ function deleteRowFromTable(rowNumber){
 // "Add New Contact Entry" Button:
 let addNewContactEntryBtn = document.getElementById('cmaAddNewContactEntry');
 addNewContactEntryBtn.addEventListener('click', () => {
-    enableDisableContactModal('enable');
+    enableDisableContactModal('enable','newContact');
 });
 
 //* Function to Enable or Disable Contact Modal:
-function enableDisableContactModal (option){
+function enableDisableContactModal (option, mode){
 
-    // Define variables for each input field in Modal: 
+    // Define variables for each input field in Modal:
+    let contactModalHeading = document.getElementById('contactModalHeading');
     let contactModalFirstName = document.getElementById('contactModalFirstName');
     let contactModalLastName = document.getElementById('contactModalLastName');
     let contactModalDateOfBirth = document.getElementById('contactModalDateOfBirth');
     let contactModalPhone = document.getElementById('contactModalPhone');
     let contactModalEmail = document.getElementById('contactModalEmail');
     let contactModalAddress = document.getElementById('contactModalAddress');
+    let contactModalSubmitBtn = document.getElementById('contactModalSubmitBtn');
+
+    // Change Contact Modal Heading and "Submit" Button text:
+    if (mode =='newContact'){
+        contactModalHeading.innerHTML = "Add New Contact";
+        contactModalSubmitBtn.innerHTML = addNewContactBtnName;
+    } 
+
+    if (mode =='editContact'){
+        contactModalHeading.innerHTML = "Edit Existing Contact";
+        contactModalSubmitBtn.innerHTML = editContactBtnName;
+    } 
 
     // Reset all input field values:
     contactModalFirstName.value = "";
@@ -231,9 +274,8 @@ contactModalSubmitBtn.addEventListener('click', () => {
     let contactModalEmail = document.getElementById('contactModalEmail').value.trim();
     let contactModalAddress = document.getElementById('contactModalAddress').value.trim();
 
-    // Save new values to row collumns if esential fields are not empty:
-    if(contactModalFirstName !== "" && contactModalPhone !== "" && contactModalAddress !== "") {
-
+    // Save new values to New row collumns if it is New Contact:
+    if (contactModalSubmitBtn.innerHTML == addNewContactBtnName){
         cmaTableArray[cmaTableArray.length] = {
             'id': cmaTableArray.length + 1,
             'firstName': contactModalFirstName,
@@ -243,11 +285,25 @@ contactModalSubmitBtn.addEventListener('click', () => {
             'email': contactModalEmail,
             'address': contactModalAddress
         }
-
-        localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
-        enableDisableContactModal('disable');
-        refreshTableContent();
     }
+
+    // Update values to Old row collumns if edting Existing Contact:
+    if (contactModalSubmitBtn.innerHTML == editContactBtnName){
+        cmaTableArray[curentContactId] = {
+            'id': curentContactId + 1,
+            'firstName': contactModalFirstName,
+            'lastName': contactModalLastName,
+            'dateOfBirth': contactModalDateOfBirth,
+            'phone': contactModalPhone,
+            'email': contactModalEmail,
+            'address': contactModalAddress
+        }
+    }
+
+    localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
+    enableDisableContactModal('disable');
+    refreshTableContent();
+    
 });//- Contact Modal "Submit" Button.
 
 //* Loading Table Array with data from localStorage Table's:
