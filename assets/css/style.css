@@ -12,7 +12,6 @@ body {
 	font-family: "Open Sans", sans-serif;
 }
 
-
 h1, h2 {
 	font-family: sans-serif;
 	text-align: center;
@@ -50,7 +49,7 @@ h2 {
 	text-overflow: ellipsis;
 }
 
-.cma-id-Num{
+.cma-id-num{
 	/* flex-basis: 4%; */
 	width: 40px;
 }
@@ -80,6 +79,7 @@ h2 {
 	flex-grow: 2;
 	flex-basis: 20%;
 }
+
 .cma-header {
 	background-color: rgba(251,111,68,1);
 	font-weight: bolder;

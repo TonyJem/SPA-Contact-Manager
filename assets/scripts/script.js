@@ -51,7 +51,7 @@ let refreshDOMTable = () => {
 
         // Define classes names for recently created row and collumns:
         currentRow.className = 'cma-table-row';
-        currentIdNumCol.className = 'cma-table-column cma-id-Num';
+        currentIdNumCol.className = 'cma-table-column cma-id-num';
         currentFirstNameCol.className = 'cma-table-column cma-first-name';
         currentLastNameCol.className = 'cma-table-column cma-last-name';
         currentDateOfBirthCol.className = 'cma-table-column cma-date-of-birth';
