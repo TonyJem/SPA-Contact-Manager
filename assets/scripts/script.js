@@ -89,12 +89,17 @@ let refreshDOMTable = () => {
 
     //* Function to Enable or Disable "Add New or Edit Contact" Modal:
         let enableDisableNewUserModal = (option) => {
+            // get data from fields in Modal: 
+            let newContactIdNum = document.getElementById('newContactIdNum');
             let newContactFirstName = document.getElementById('newContactFirstName');
             let newContactLastName = document.getElementById('newContactLastName');
             let newContactDateOfBirth = document.getElementById('newContactDateOfBirth');
             let newContactPhone = document.getElementById('newContactPhone');
             let newContactEmail = document.getElementById('newContactEmail');
             let newContactAddress = document.getElementById('newContactAddress');
+
+            // Reset value in Modal input fields:
+            newContactIdNum.value = "";
             newContactFirstName.value = "";
             newContactLastName.value = "";
             newContactDateOfBirth.value = "";
@@ -102,21 +107,23 @@ let refreshDOMTable = () => {
             newContactEmail.value = "";
             newContactAddress.value = "";
 
+            // Enable/Disable Modal: 
             let newContactModal = document.getElementById('newContactModal');
-            let backdrop = document.getElementById('backdrop');
-
             newContactModal.className = `${option}-modal`;
+            
+            // Enable/Disable Backdrop:
+            let backdrop = document.getElementById('backdrop');
             backdrop.className = `${option}-modal`;
         }
     //- Function to Enable or Disable "Add New or Edit Contact" Modal.
 
-    let addNewEntryBtn = document.getElementById('cmaAddNewEntry');
-    let editBtns = document.getElementsByClassName('cma-edit');
-    let deleteBtns = document.getElementsByClassName('cma-delete');
     
     //* New Contact Submit Button:
         let newContactSubmitBtn = document.getElementById('newContactSubmitBtn');
         newContactSubmitBtn.addEventListener('click', () => {
+            
+            // Trim spaces in values (in front and back of it):
+            let newContactIdNum = document.getElementById('newContactIdNum').value.trim();
             let newContactFirstName = document.getElementById('newContactFirstName').value.trim();
             let newContactLastName = document.getElementById('newContactLastName').value.trim();
             let newContactDateOfBirth = document.getElementById('newContactDateOfBirth').value.trim();
@@ -127,12 +134,10 @@ let refreshDOMTable = () => {
             // Insert VALIDATION HERE:
             // VALIDATION...
 
-            // ! check below until ! mark
+            // Save new values to row collumns if esential fields are not empty:
             if(newContactFirstName !== "" && newContactPhone !== "" && newContactAddress !== "") {
-                cmaTable[newContactFirstName] = {
-                    // ! check below until ! mark
+                cmaTable[newContactIdNum] = {
                     'firstName': newContactFirstName,
-                    // !
                     'lastName': newContactLastName,
                     'dateOfBirth': newContactDateOfBirth,
                     'phone': newContactPhone,
@@ -153,55 +158,57 @@ let refreshDOMTable = () => {
     });
 
     // Add Entry Button:
+    let addNewEntryBtn = document.getElementById('cmaAddNewEntry');
     addNewEntryBtn.addEventListener('click', () => {
         enableDisableNewUserModal('enable');
     });
- 
-    for (let i  = 0; i < editBtns.length; i++) {
-        editBtns[i].addEventListener('click', ($event) => {
-            let rowToEdit = $event.target.parentElement.children[0].innerText;
-            let ContactToEdit = cmaTable[rowToEdit];
-            enableDisableNewUserModal('enable');
-            let newContactFirstName = document.getElementById('newContactFirstName');
-            let newContactLastName = document.getElementById('newContactLastName');
-            let newContactDateOfBirth = document.getElementById('newContactDateOfBirth');
-            let newContactPhone = document.getElementById('newContactPhone');
-            let newContactEmail = document.getElementById('newContactEmail');
-            let newContactAddress = document.getElementById('newContactAddress');
+    
+    //* Edit Contact Button:
+        let editBtns = document.getElementsByClassName('cma-edit');
+        for (let i  = 0; i < editBtns.length; i++) {
+            editBtns[i].addEventListener('click', ($event) => {
+                let rowToEdit = $event.target.parentElement.children[0].innerText;
+                let ContactToEdit = cmaTable[rowToEdit];
+                enableDisableNewUserModal('enable');
+                
+                // Define variables for getting values:
+                let newContactIdNum = document.getElementById('newContactIdNum');
+                let newContactFirstName = document.getElementById('newContactFirstName');
+                let newContactLastName = document.getElementById('newContactLastName');
+                let newContactDateOfBirth = document.getElementById('newContactDateOfBirth');
+                let newContactPhone = document.getElementById('newContactPhone');
+                let newContactEmail = document.getElementById('newContactEmail');
+                let newContactAddress = document.getElementById('newContactAddress');
 
-            // ! check below until ! mark
-            newContactFirstName.value = rowToEdit;
-            newContactFirstName.value = ContactToEdit.firstName;
-            // !
-
-            newContactLastName.value = ContactToEdit.lastName;
-            newContactDateOfBirth.value = ContactToEdit.dateOfBirth;
-            newContactPhone.value = ContactToEdit.phone;
-            newContactEmail.value = ContactToEdit.email;
-            newContactAddress.value = ContactToEdit.address;
-        });
-    }
-
-
-// ! check below until ! mark
+                // Get values from Modal input fields:
+                newContactIdNum.value = rowToEdit;
+                newContactFirstName.value = ContactToEdit.firstName;
+                newContactLastName.value = ContactToEdit.lastName;
+                newContactDateOfBirth.value = ContactToEdit.dateOfBirth;
+                newContactPhone.value = ContactToEdit.phone;
+                newContactEmail.value = ContactToEdit.email;
+                newContactAddress.value = ContactToEdit.address;
+            });
+        }
+    //- Edit Contact Button.
+    
+    // Add Delete Button:
+    let deleteBtns = document.getElementsByClassName('cma-delete');
     for (let i  = 0; i < deleteBtns.length; i++) {
         deleteBtns[i].addEventListener('click', ($event) => {
-            let nameToDelete = $event.target.parentElement.children[0].innerText;
-            let isSure = window.confirm('Are you sure you want to delete ' + nameToDelete + '?');
+            let contactToDelete = $event.target.parentElement.children[0].innerText;
+            let isSure = window.confirm('Are you sure you want to delete contact from row nr. ' + contactToDelete + '?');
             if (isSure)
-                deleteUserFromTable(nameToDelete);
+                deleteRawFromTable(contactToDelete);
         });
     }
-// !
-
-
 }
-// !
-let deleteUserFromTable = (userName) => {
+
+let deleteRawFromTable = (rowNumber) => {
     let tempTable = {};
     let cmaTableKeys = Object.keys(cmaTable);
     for (let i = 0; i < cmaTableKeys.length; i++) {
-        if (userName !== cmaTableKeys[i]) {
+        if (rowNumber !== cmaTableKeys[i]) {
             tempTable[cmaTableKeys[i]] = cmaTable[cmaTableKeys[i]];
         }
     }
@@ -220,6 +227,5 @@ let init = () => {
     refreshDOMTable();
     localStorage.setItem(tableKey, JSON.stringify(cmaTable));
 }
-// !
 
 init();
