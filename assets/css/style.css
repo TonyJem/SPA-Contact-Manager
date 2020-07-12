@@ -51,7 +51,8 @@ h2 {
 }
 
 .cma-id-Num{
-	flex-basis: 4%;
+	/* flex-basis: 4%; */
+	width: 40px;
 }
 
 .cma-first-name{
@@ -63,7 +64,8 @@ h2 {
 }
 
 .cma-date-of-birth{
-	flex-basis: 15%;
+	/* flex-basis: 15%; */
+	width: 150px;
 }
 
 .cma-phone{
@@ -84,7 +86,8 @@ h2 {
 }
 
 .cma-edit, .cma-delete, .cma-add-entry-column {
-	flex-basis: 4%;
+	/* flex-basis: 4%; */
+	width: 25px;
 	text-align: center;
 	cursor: pointer;
 }
