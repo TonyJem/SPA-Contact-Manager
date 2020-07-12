@@ -3,10 +3,11 @@ console.log("script.js file is connected.");
 
 const tableKey = 'cma-table-array';
 
-// "Clear Local Storage" button:
-let clearBtn = document.getElementById('clearBtn');
-clearBtn.addEventListener('click', () => {
+// "Load Demo Table" button:
+let loadDemoTableBtn = document.getElementById('loadDemoTableBtn');
+loadDemoTableBtn.addEventListener('click', () => {
     localStorage.removeItem(tableKey);
+    location.reload()
 });
 
 //* Demo Array:
