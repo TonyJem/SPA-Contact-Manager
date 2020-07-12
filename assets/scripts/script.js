@@ -24,6 +24,7 @@ let cmaTableDemo = {
         }
 };
 
+//** Function to Refresh table content:
 let refreshDOMTable = () => {
 
     let cmaTableKeys = Object.keys(cmaTable);
@@ -192,7 +193,7 @@ let refreshDOMTable = () => {
         }
     //- Edit Contact Button.
     
-    // Add Delete Button:
+    // Delete Button:
     let deleteBtns = document.getElementsByClassName('cma-delete');
     for (let i  = 0; i < deleteBtns.length; i++) {
         deleteBtns[i].addEventListener('click', ($event) => {
@@ -202,7 +203,7 @@ let refreshDOMTable = () => {
                 deleteRawFromTable(contactToDelete);
         });
     }
-}
+}//-- Function to Refresh table content.
 
 let deleteRawFromTable = (rowNumber) => {
     let tempTable = {};
