@@ -11,7 +11,8 @@ clearBtn.addEventListener('click', () => {
 
 //* Demo Array:
 let cmaTableArrayDemo = [
-    {   id: 1,
+    {   
+        id: 1,
         firstName: 'Johnny',
         lastName: 'Aplleseed',
         dateOfBirth: '1845-03-18',
@@ -19,7 +20,7 @@ let cmaTableArrayDemo = [
         email: 'j.aplleseed@icloud.com',
         address: 'Cupertino, California, United States'
         },
-    {
+    {   
         id: 2,
         firstName: 'Sarah',
         lastName: 'Connor',
@@ -97,7 +98,7 @@ function refreshTableContent() {
     }
 } //- Update Table's content.
 
-// Add New Contact Entry Button:
+// "Add New Contact Entry" Button:
 let addNewContactEntryBtn = document.getElementById('cmaAddNewContactEntry');
 addNewContactEntryBtn.addEventListener('click', () => {
     enableDisableContactModal('enable');
@@ -132,7 +133,7 @@ function enableDisableContactModal (option){
 
 } //- Function to Enable or Disable Contact Modal.
 
-// New Contact Cancel Button:
+// Contact Modal "Cancel" Button:
 let contactModalCancelBtn = document.getElementById('contactModalCancelBtn');
 contactModalCancelBtn.addEventListener('click', () => {
     enableDisableContactModal('disable');
