@@ -96,7 +96,39 @@ function refreshTableContent() {
         currentRow.appendChild(currentDeleteBtn);
         newTableBody.appendChild(currentRow);
     }
+
+    //* "Delete" Button:
+    let deleteBtns = document.getElementsByClassName('cma-delete');
+    for (let i  = 0; i < deleteBtns.length; i++) {
+        deleteBtns[i].addEventListener('click', () => {
+            let contactToDeleteId = i;
+            let isSure = window.confirm('Are you sure you want to delete contact from row nr.: ' + (contactToDeleteId+1) + '?');
+            if (isSure)
+            deleteRowFromTable(contactToDeleteId);
+        });
+    }//- "Delete" Button.
+
 } //- Update Table's content.
+
+//* Delete Row from Table Array:
+function deleteRowFromTable(rowNumber){
+    
+    delete cmaTableArray[rowNumber];
+    // Remove emtpy items from Table Array:
+    cmaTableArray = cmaTableArray.filter(function () {
+        return true
+    });
+
+    // Change ID for each item in Temporary Array to make it ascending starting from 1: 
+    for (let i = 0; i < cmaTableArray.length; i++){
+        cmaTableArray[i].id = i + 1;
+    }
+
+    // Refresh table with new Array (without recently deleted row):
+    localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
+    refreshTableContent();
+
+}//- Delete Row from Table Array.
 
 // "Add New Contact Entry" Button:
 let addNewContactEntryBtn = document.getElementById('cmaAddNewContactEntry');
