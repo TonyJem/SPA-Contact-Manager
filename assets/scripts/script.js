@@ -108,12 +108,12 @@ addNewContactEntryBtn.addEventListener('click', () => {
 function enableDisableContactModal (option){
 
     // Define variables for each input field in Modal: 
-    let contactModalFirstName = document.getElementById('newContactFirstName');
-    let contactModalLastName = document.getElementById('newContactLastName');
-    let contactModalDateOfBirth = document.getElementById('newContactDateOfBirth');
-    let contactModalPhone = document.getElementById('newContactPhone');
-    let contactModalEmail = document.getElementById('newContactEmail');
-    let contactModalAddress = document.getElementById('newContactAddress');
+    let contactModalFirstName = document.getElementById('contactModalFirstName');
+    let contactModalLastName = document.getElementById('contactModalLastName');
+    let contactModalDateOfBirth = document.getElementById('contactModalDateOfBirth');
+    let contactModalPhone = document.getElementById('contactModalPhone');
+    let contactModalEmail = document.getElementById('contactModalEmail');
+    let contactModalAddress = document.getElementById('contactModalAddress');
 
     // Reset all input field values:
     contactModalFirstName.value = "";
@@ -144,12 +144,12 @@ let contactModalSubmitBtn = document.getElementById('contactModalSubmitBtn');
 contactModalSubmitBtn.addEventListener('click', () => {
     
     // Trim spaces in values (in front and back of it):
-    let contactModalFirstName = document.getElementById('newContactFirstName').value.trim();
-    let contactModalLastName = document.getElementById('newContactLastName').value.trim();
-    let contactModalDateOfBirth = document.getElementById('newContactDateOfBirth').value.trim();
-    let contactModalPhone = document.getElementById('newContactPhone').value.trim();
-    let contactModalEmail = document.getElementById('newContactEmail').value.trim();
-    let contactModalAddress = document.getElementById('newContactAddress').value.trim();
+    let contactModalFirstName = document.getElementById('contactModalFirstName').value.trim();
+    let contactModalLastName = document.getElementById('contactModalLastName').value.trim();
+    let contactModalDateOfBirth = document.getElementById('contactModalDateOfBirth').value.trim();
+    let contactModalPhone = document.getElementById('contactModalPhone').value.trim();
+    let contactModalEmail = document.getElementById('contactModalEmail').value.trim();
+    let contactModalAddress = document.getElementById('contactModalAddress').value.trim();
 
     // Save new values to row collumns if esential fields are not empty:
     if(contactModalFirstName !== "" && contactModalPhone !== "" && contactModalAddress !== "") {
