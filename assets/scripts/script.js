@@ -6,7 +6,7 @@ const tableKey = 'cma-table';
 let cmaTable;
 
 let cmaTableDemo = {
-    'Contact0': {
+    '0': {
         'firstName': 'Johnny',
         'lastName': 'Aplleseed',
         'dateOfBirth': '1845-03-18',
@@ -14,7 +14,7 @@ let cmaTableDemo = {
         'email': 'j.aplleseed@icloud.com',
         'address': 'Cupertino, California, United States'
         },
-    'Contact1': {
+    '1': {
         'firstName': 'Sarah',
         'lastName': 'Connor',
         'dateOfBirth': '1964-02-13',
