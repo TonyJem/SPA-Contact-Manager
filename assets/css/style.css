@@ -92,7 +92,7 @@ h2 {
 	cursor: pointer;
 }
 
-#newContactModal {
+#contactModal {
 	width: 500px;
 	padding: 10px;
 	border-radius: 5px;
@@ -103,7 +103,7 @@ h2 {
 	background-color: rgba(251,111,68,1);
 }
 
-#newContactModal input{
+#contactModal input{
 	display: block;
 	margin-bottom: 15px;
 	padding: 10px;

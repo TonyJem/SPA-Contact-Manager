@@ -97,6 +97,41 @@ function refreshTableContent() {
     }
 } //- Update Table's content.
 
+// Add New Contact Entry Button:
+let addNewContactEntryBtn = document.getElementById('cmaAddNewContactEntry');
+addNewContactEntryBtn.addEventListener('click', () => {
+    enableDisableContactModal('enable');
+});
+
+//* Function to Enable or Disable Contact Modal:
+function enableDisableContactModal (option){
+
+    // Define variables for each input field in Modal: 
+    let contactModalFirstName = document.getElementById('newContactFirstName');
+    let contactModalLastName = document.getElementById('newContactLastName');
+    let contactModalDateOfBirth = document.getElementById('newContactDateOfBirth');
+    let contactModalPhone = document.getElementById('newContactPhone');
+    let contactModalEmail = document.getElementById('newContactEmail');
+    let contactModalAddress = document.getElementById('newContactAddress');
+
+    // Reset all input field values:
+    contactModalFirstName.value = "";
+    contactModalLastName.value = "";
+    contactModalDateOfBirth.value = "";
+    contactModalPhone.value = "";
+    contactModalEmail.value = "";
+    contactModalAddress.value = "";
+
+    // Enable/Disable Contact Modal: 
+    let contactModal = document.getElementById('contactModal');
+    contactModal.className = `${option}-modal`;
+    
+    // Enable/Disable Backdrop:
+    let backdrop = document.getElementById('backdrop');
+    backdrop.className = `${option}-modal`;
+
+} //- Function to Enable or Disable Contact Modal.
+
 //* Loading Table Array with data from localStorage Table's:
 function init(){
     if(localStorage.getItem(tableKey)) {
