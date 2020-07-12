@@ -132,6 +132,13 @@ function enableDisableContactModal (option){
 
 } //- Function to Enable or Disable Contact Modal.
 
+// New Contact Cancel Button:
+let contactModalCancelBtn = document.getElementById('contactModalCancelButton');
+contactModalCancelBtn.addEventListener('click', () => {
+    enableDisableContactModal('disable');
+});
+
+
 //* Loading Table Array with data from localStorage Table's:
 function init(){
     if(localStorage.getItem(tableKey)) {
@@ -145,5 +152,5 @@ function init(){
     localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
 }//- Loading Table Array with data from localStorage Table's:
 
-// Launch App:
+// Function Launching App:
 init();
