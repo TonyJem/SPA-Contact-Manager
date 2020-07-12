@@ -138,6 +138,36 @@ contactModalCancelBtn.addEventListener('click', () => {
     enableDisableContactModal('disable');
 });
 
+//* Contact Modal "Submit" Button:
+let contactModalSubmitBtn = document.getElementById('contactModalSubmitBtn');
+contactModalSubmitBtn.addEventListener('click', () => {
+    
+    // Trim spaces in values (in front and back of it):
+    let contactModalFirstName = document.getElementById('newContactFirstName').value.trim();
+    let contactModalLastName = document.getElementById('newContactLastName').value.trim();
+    let contactModalDateOfBirth = document.getElementById('newContactDateOfBirth').value.trim();
+    let contactModalPhone = document.getElementById('newContactPhone').value.trim();
+    let contactModalEmail = document.getElementById('newContactEmail').value.trim();
+    let contactModalAddress = document.getElementById('newContactAddress').value.trim();
+
+    // Save new values to row collumns if esential fields are not empty:
+    if(contactModalFirstName !== "" && contactModalPhone !== "" && contactModalAddress !== "") {
+
+        cmaTableArray[cmaTableArray.length] = {
+            'id': cmaTableArray.length + 1,
+            'firstName': contactModalFirstName,
+            'lastName': contactModalLastName,
+            'dateOfBirth': contactModalDateOfBirth,
+            'phone': contactModalPhone,
+            'email': contactModalEmail,
+            'address': contactModalAddress
+        }
+
+        localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
+        enableDisableContactModal('disable');
+        refreshTableContent();
+    }
+});//- Contact Modal "Submit" Button.
 
 //* Loading Table Array with data from localStorage Table's:
 function init(){
