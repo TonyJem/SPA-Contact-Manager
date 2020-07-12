@@ -1,7 +1,7 @@
 "use strict";
 console.log("script.js file is connected.");
 
-const tableKey = 'cms-table';
+const tableKey = 'cma-table-array';
 
 // "Clear Local Storage" button:
 let clearBtn = document.getElementById('clearBtn');
@@ -11,7 +11,8 @@ clearBtn.addEventListener('click', () => {
 
 //* Demo Array:
 let cmaTableArrayDemo = [
-    {   firstName: 'Johnny',
+    {   id: 1,
+        firstName: 'Johnny',
         lastName: 'Aplleseed',
         dateOfBirth: '1845-03-18',
         phone: '+37069085856',
@@ -19,6 +20,7 @@ let cmaTableArrayDemo = [
         address: 'Cupertino, California, United States'
         },
     {
+        id: 2,
         firstName: 'Sarah',
         lastName: 'Connor',
         dateOfBirth: '1964-02-13',
@@ -33,8 +35,7 @@ console.log(cmaTableArrayDemo);
 
 let cmaTableArray = cmaTableArrayDemo;
 
-refreshTableContent();
-
+//* Update Table's content:
 function refreshTableContent() {
     let tableContainer = document.getElementById('cmaTableContainer');
     let oldTableBody = document.getElementById('tableBody');
@@ -70,7 +71,7 @@ function refreshTableContent() {
         currentDeleteBtn.className = 'cma-table-column cma-delete';
 
         // Get data for each collumn content:
-        currentIdNumCol.innerHTML = i; // <- Number of Row should be increased by 1!!!
+        currentIdNumCol.innerHTML = cmaTableArray[i].id;
         currentFirstNameCol.innerHTML = cmaTableArray[i].firstName;
         currentLastNameCol.innerHTML = cmaTableArray[i].lastName;
         currentDateOfBirthCol.innerHTML = cmaTableArray[i].dateOfBirth;
@@ -94,4 +95,20 @@ function refreshTableContent() {
         currentRow.appendChild(currentDeleteBtn);
         newTableBody.appendChild(currentRow);
     }
-}
+} //- Update Table's content.
+
+//* Loading Table Array with data from localStorage Table's:
+function init(){
+    if(localStorage.getItem(tableKey)) {
+        cmaTableArray = JSON.parse(localStorage.getItem(tableKey));
+        console.log("Parsed from LocalStorage result Below:");
+        console.log(cmaTableArray);
+    } else {
+        cmaTableArray = cmaTableArrayDemo;
+    }
+    refreshTableContent();
+    localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
+}//- Loading Table Array with data from localStorage Table's:
+
+// Launch App:
+init();
