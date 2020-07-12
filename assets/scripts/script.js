@@ -46,6 +46,7 @@ function refreshTableContent() {
     newTableBody.id = 'tableBody';
     tableContainer.appendChild(newTableBody);
 
+    //* Create Table rows and load Data from Array to collumns: 
     for (let i = 0; i < cmaTableArray.length; i++) {
         // Create new row and emtpy collumns:
         let currentRow = document.createElement('div');
@@ -95,7 +96,7 @@ function refreshTableContent() {
         currentRow.appendChild(currentEditBtn);
         currentRow.appendChild(currentDeleteBtn);
         newTableBody.appendChild(currentRow);
-    }
+    }// Create Table rows and load Data from Array to collumns.
 
     //* "Delete" Button:
     let deleteBtns = document.getElementsByClassName('cma-delete');
