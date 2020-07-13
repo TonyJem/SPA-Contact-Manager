@@ -83,7 +83,7 @@ let cmaTableArrayDemo = [
 
 ]; //- Demo Array.
 
-let cmaTableArray;
+let cmaTableArray = [];
 
 //* Update Table's content:
 function refreshTableContent() {
@@ -299,7 +299,7 @@ contactModalSubmitBtn.addEventListener('click', () => {
     if (contactModalPhone !== '') {
         phoneValidationOk = true;
     } else {
-        alertNotice = alertNotice + "\n * Phone number must have at least one number!";
+        alertNotice = alertNotice + "\n * Phone number must contain at least one digit!";
     }
 
     let mailValidationOk = false;
