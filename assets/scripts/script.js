@@ -83,9 +83,6 @@ let cmaTableArrayDemo = [
 
 ]; //- Demo Array.
 
-console.log("cmaTableArrayDemo Below:");
-console.log(cmaTableArrayDemo);
-
 let cmaTableArray;
 
 //* Update Table's content:
@@ -358,8 +355,6 @@ contactModalSubmitBtn.addEventListener('click', () => {
 function init(){
     if(localStorage.getItem(tableKey)) {
         cmaTableArray = JSON.parse(localStorage.getItem(tableKey));
-        console.log("Parsed from LocalStorage result Below:");
-        console.log(cmaTableArray);
     } else {
         cmaTableArray = cmaTableArrayDemo;
     }
