@@ -1,2 +1,2 @@
-# SPA-Contact-Manager
+# Contact Management Application
  Vanilla JavaScript SPA
