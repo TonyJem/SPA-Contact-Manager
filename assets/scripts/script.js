@@ -49,8 +49,8 @@ let cmaTableArrayDemo = [
         firstName: 'Mia',
         lastName: 'Whallace',
         dateOfBirth: '1981-08-25',
-        phone: '53437',
-        email: 'm.whallace@pulp.org',
+        phone: '5',
+        email: 'test@mail.com',
         address: 'Chemiku 88-17, Jonava'
         },
     {   
