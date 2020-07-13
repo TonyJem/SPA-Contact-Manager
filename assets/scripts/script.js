@@ -297,7 +297,22 @@ contactModalSubmitBtn.addEventListener('click', () => {
 
     let phoneValidationOk = false;
     if (contactModalPhone !== '') {
-        phoneValidationOk = true;
+        //* Check if current Contact Phone number is unique:
+        let phoneNumberIsUnique = true;
+        for (let i = 0; i < cmaTableArray.length; i++){
+            if(contactModalPhone == cmaTableArray[i].phone) {
+                if (contactModalSubmitBtn.innerHTML == editContactBtnName &&
+                    i == curentContactId){
+                    continue;
+                }
+                alertNotice = alertNotice + "\n * Choose another Phone number, due some other Contact already uses it!";
+                phoneNumberIsUnique = false;
+                break;
+            }
+        } 
+        if (phoneNumberIsUnique) {
+            phoneValidationOk = true;
+        }//- Check if current Contact Phone number is unique.
     } else {
         alertNotice = alertNotice + "\n * Phone number must contain at least one digit!";
     }
