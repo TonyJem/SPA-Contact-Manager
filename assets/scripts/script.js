@@ -21,7 +21,7 @@ let cmaTableArrayDemo = [
         firstName: 'Johnny',
         lastName: 'Aplleseed',
         dateOfBirth: '1845-03-18',
-        phone: '+37069085856',
+        phone: '37069085856',
         email: 'j.aplleseed@icloud.com',
         address: 'Cupertino, California, United States'
         },
@@ -30,7 +30,7 @@ let cmaTableArrayDemo = [
         firstName: 'Sarah',
         lastName: 'Connor',
         dateOfBirth: '1964-02-13',
-        phone: '+37060080805',
+        phone: '37060080805',
         email: 's.connor@sky.net',
         address: '14239 Judgment Avenue, Stars Hollow'
         },
@@ -39,7 +39,7 @@ let cmaTableArrayDemo = [
         firstName: 'Thomas',
         lastName: 'Anderson',
         dateOfBirth: '1979-09-20',
-        phone: '+37060190090',
+        phone: '37060190090',
         email: 'a.tonyjem@for.fun',
         address: 'Gedimino pr.2, Vilnius'
         },
@@ -48,7 +48,7 @@ let cmaTableArrayDemo = [
         firstName: 'Mia',
         lastName: 'Whallace',
         dateOfBirth: '1981-08-25',
-        phone: '5-34-37',
+        phone: '53437',
         email: 'm.whallace@pulp.org',
         address: 'Chemiku 88-17, Jonava'
         },
@@ -57,7 +57,7 @@ let cmaTableArrayDemo = [
         firstName: 'Vincent',
         lastName: 'Vega',
         dateOfBirth: '1987-04-20',
-        phone: '+370-601-88888',
+        phone: '37060188888',
         email: 'v.vega@pulp.org',
         address: 'Pramones pr.117, Kaunas'
         },
@@ -66,7 +66,7 @@ let cmaTableArrayDemo = [
         firstName: 'Jules',
         lastName: 'Winnfield',
         dateOfBirth: '1961-04-12',
-        phone: '+37060080805',
+        phone: '37062581815',
         email: 'j.winnfield@pulp.org',
         address: 'BridgeStone str., Heathrow'
         },
@@ -75,7 +75,7 @@ let cmaTableArrayDemo = [
         firstName: 'Winston',
         lastName: 'Wolfie',
         dateOfBirth: '1955-09-21',
-        phone: '+37060080805',
+        phone: '37060080805',
         email: 'w.wolfie@pulp.org',
         address: 'Queen Mary str.15, London'
         },
