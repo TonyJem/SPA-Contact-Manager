@@ -38,24 +38,24 @@
 			<h1 id="contactModalHeading"> Add New Contact</h1>
 
 			<label for="contactModalFirstName">First name</label>
-			<input type="text" id="contactModalFirstName" onkeypress="return (event.charCode > 64 && event.charCode < 91) ||
+			<input type="text" id="contactModalFirstName" maxlength="77" onkeypress="return (event.charCode > 64 && event.charCode < 91) ||
 			(event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
 
 			<label for="contactModalLastName">Last name</label>
-			<input type="text" id="contactModalLastName" onkeypress="return (event.charCode > 64 && event.charCode < 91) ||
+			<input type="text" id="contactModalLastName" maxlength="77" onkeypress="return (event.charCode > 64 && event.charCode < 91) ||
 			(event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)">
 
 			<label for="contactModalDateOfBirth">Date of birth</label>
 			<input type="date" id="contactModalDateOfBirth">
 
 			<label for="contactModalPhone">Phone number</label>
-			<input type="text" id="contactModalPhone" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
+			<input type="text" id="contactModalPhone" maxlength="55" onkeypress="return (event.charCode >= 48 && event.charCode <= 57)">
 
 			<label for="contactModalEmail">Email</label>
-			<input type="email" id="contactModalEmail">
+			<input type="email" id="contactModalEmail" maxlength="88">
 
 			<label for="contactModalAddress">Address (optional)</label>
-			<input type="text" id="contactModalAddress">
+			<input type="text" id="contactModalAddress" maxlength="128">
 
 			<button id="contactModalCancelBtn">Cancel</button>
 			<button id="contactModalSubmitBtn">Submit</button>
