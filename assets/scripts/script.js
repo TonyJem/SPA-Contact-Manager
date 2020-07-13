@@ -319,7 +319,22 @@ contactModalSubmitBtn.addEventListener('click', () => {
 
     let mailValidationOk = false;
     if(contactModalEmail.match(mailformatForValidation)) {
-        mailValidationOk = true;
+        //* Check if current Email is unique:
+        let emailIsUnique = true;
+        for (let i = 0; i < cmaTableArray.length; i++){
+            if(contactModalEmail == cmaTableArray[i].email) {
+                if (contactModalSubmitBtn.innerHTML == editContactBtnName &&
+                    i == curentContactId){
+                    continue;
+                }
+                alertNotice = alertNotice + "\n * Choose another Email, due some other Contact already uses it!";
+                emailIsUnique = false;
+                break;
+            }
+        }
+        if (emailIsUnique) {
+            mailValidationOk = true;
+        }//- Check if current Email is unique.
     } else {
         alertNotice = alertNotice + "\n * Email format must be corrected!";
     } 
