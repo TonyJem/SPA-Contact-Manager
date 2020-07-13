@@ -5,6 +5,7 @@ const tableKey = 'cma-table-array';
 const editContactBtnName = 'Submit Changes';
 const addNewContactBtnName = 'Add to Contact List';
 const mailformatForValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+const maximalDataEntryRowAmount = 100;
 
 let curentContactId;
 
@@ -209,7 +210,11 @@ function deleteRowFromTable(rowNumber){
 // "Add New Contact Entry" Button:
 let addNewContactEntryBtn = document.getElementById('cmaAddNewContactEntry');
 addNewContactEntryBtn.addEventListener('click', () => {
-    enableDisableContactModal('enable','newContact');
+    if(cmaTableArray.length == maximalDataEntryRowAmount ){
+        alert("Maximal Data Entry amount has been riched! \n\n Please delete some unneseccary contacts and try create new contact again.");
+    } else {
+        enableDisableContactModal('enable','newContact');
+    }
 });
 
 //* Function to Enable or Disable Contact Modal:
