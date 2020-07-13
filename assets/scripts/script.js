@@ -4,6 +4,7 @@ console.log("script.js file is connected.");
 const tableKey = 'cma-table-array';
 const editContactBtnName = 'Submit Changes';
 const addNewContactBtnName = 'Add to Contact List';
+const mailformatForValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
 
 let curentContactId;
 
@@ -274,36 +275,83 @@ contactModalSubmitBtn.addEventListener('click', () => {
     let contactModalEmail = document.getElementById('contactModalEmail').value.trim();
     let contactModalAddress = document.getElementById('contactModalAddress').value.trim();
 
-    // Save new values to New row collumns if it is New Contact:
-    if (contactModalSubmitBtn.innerHTML == addNewContactBtnName){
-        cmaTableArray[cmaTableArray.length] = {
-            'id': cmaTableArray.length + 1,
-            'firstName': contactModalFirstName,
-            'lastName': contactModalLastName,
-            'dateOfBirth': contactModalDateOfBirth,
-            'phone': contactModalPhone,
-            'email': contactModalEmail,
-            'address': contactModalAddress
-        }
+    //* Data Validation and saving: 
+    let alertNotice = 'Please check and change following fields:\n';
+    let firstNameValidationOk = false;
+    if (contactModalFirstName !== '') {
+        firstNameValidationOk = true;
+    } else {
+        alertNotice = alertNotice + "\n * First name to fill is required!";
     }
 
-    // Update values to Old row collumns if edting Existing Contact:
-    if (contactModalSubmitBtn.innerHTML == editContactBtnName){
-        cmaTableArray[curentContactId] = {
-            'id': curentContactId + 1,
-            'firstName': contactModalFirstName,
-            'lastName': contactModalLastName,
-            'dateOfBirth': contactModalDateOfBirth,
-            'phone': contactModalPhone,
-            'email': contactModalEmail,
-            'address': contactModalAddress
-        }
+    let lastNameValidationOk = false;
+    if (contactModalLastName !== '') {
+        lastNameValidationOk = true;
+    } else {
+        alertNotice = alertNotice + "\n * Last name to fill is required!";
     }
 
-    localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
-    enableDisableContactModal('disable');
-    refreshTableContent();
+    let dateOfBirthValidationOk = false;
+    if (contactModalDateOfBirth !== '') {
+        dateOfBirthValidationOk = true;
+    } else {
+        alertNotice = alertNotice + "\n * Date of Birth must be corrected!";
+    }
+
+    let phoneValidationOk = false;
+    if (contactModalPhone !== '') {
+        phoneValidationOk = true;
+    } else {
+        alertNotice = alertNotice + "\n * Phone number must have at least one number!";
+    }
+
+    let mailValidationOk = false;
+    if(contactModalEmail.match(mailformatForValidation)) {
+        mailValidationOk = true;
+    } else {
+        alertNotice = alertNotice + "\n * Email format must be corrected!";
+    } 
     
+    if (firstNameValidationOk &&
+        lastNameValidationOk &&
+        dateOfBirthValidationOk &&
+        phoneValidationOk &&
+        mailValidationOk) {
+        
+        // Save new values to New Row collumns if it is New Contact:
+        if (contactModalSubmitBtn.innerHTML == addNewContactBtnName){
+            cmaTableArray[cmaTableArray.length] = {
+                'id': cmaTableArray.length + 1,
+                'firstName': contactModalFirstName,
+                'lastName': contactModalLastName,
+                'dateOfBirth': contactModalDateOfBirth,
+                'phone': contactModalPhone,
+                'email': contactModalEmail,
+                'address': contactModalAddress
+            }
+        }
+        
+        // Update values to Old Row collumns if edting Existing Contact:
+        if (contactModalSubmitBtn.innerHTML == editContactBtnName){
+            cmaTableArray[curentContactId] = {
+                'id': curentContactId + 1,
+                'firstName': contactModalFirstName,
+                'lastName': contactModalLastName,
+                'dateOfBirth': contactModalDateOfBirth,
+                'phone': contactModalPhone,
+                'email': contactModalEmail,
+                'address': contactModalAddress
+            }
+        }
+
+        localStorage.setItem(tableKey, JSON.stringify(cmaTableArray));
+        enableDisableContactModal('disable');
+        refreshTableContent();
+    } else {
+        alert(alertNotice);
+    }
+    //- Data Validation and saving.
+
 });//- Contact Modal "Submit" Button.
 
 //* Loading Table Array with data from localStorage Table's:
