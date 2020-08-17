@@ -38,7 +38,7 @@ Tips:
 * Initial code idea from Youtube Channel:
 https://www.youtube.com/watch?v=D2RzLH5F_aM 
 
-* Backfround picture used Photo (by Jonas Ferlin) from Pexels:
+* Background picture used Photo (by Jonas Ferlin) from Pexels:
 https://www.pexels.com/photo/mirror-facade-of-tall-building-1963557/
 
 * Icons used from Font awesome:
