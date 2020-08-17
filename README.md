@@ -9,8 +9,8 @@ Was complited as a test task in candidates selection for international IT compan
 * CSS/SCSS
 * JavaScript
 
-### Task:
-Create a single page contact management application using HTML, JavaScript and CSS. Do not use any third-party libraries.
+### Task description:
+Create a __single page__ contact management application using HTML, JavaScript and CSS. Do not use any third-party libraries.
 
 User should be able to perform these tasks:
 * View all contacts
@@ -19,12 +19,12 @@ User should be able to perform these tasks:
 * Delete existing contact
 
 Contact should have the following fields:
-* First name (required, only letters allowed)
-* Last name (required, only letters allowed)
-* Date of birth (required, only date is allowed)
-* Phone number (required, only numbers allowed)
-* E-mail (required, format check)
-* Address (optional)
+* __First name__ (required, only letters allowed)
+* __Last name__ (required, only letters allowed)
+* __Date of birth__ (required, only date is allowed)
+* __Phone number__ (required, only numbers allowed)
+* __E-mail__ (required, format check)
+* __Address__ (optional)
 
 The Phone number and E-mail address should be unique and can not be used for multiple contacts.
 
